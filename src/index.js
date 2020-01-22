@@ -17,7 +17,7 @@ const logger = createLogger()
 
 const store = createStore(
   rootReducer,
-  composeWithDevTools(applyMiddleware(logger, ReduxThunk)),
+  composeWithDevTools(applyMiddleware(ReduxThunk)),
 )
 
 //provide the store to react

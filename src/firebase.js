@@ -15,3 +15,6 @@ firebase.initializeApp(firebaseConfig)
 firebase.analytics()
 
 export const database = firebase.database().ref('/notes')
+export const auth = firebase.auth() //authenticatino status
+export const googleProvider = new firebase.auth.GoogleAuthProvider()
+export const facebookProvider = new firebase.auth.FacebookAuthProvider()

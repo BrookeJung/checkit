@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import Check from '../components/Check'
 import { useSelector, useDispatch } from 'react-redux'
-import { getNotes, saveNote } from '../modules/check'
+import { getNotes, saveNote, delNote } from '../modules/check'
 
 const CheckContainer = () => {
   const notes = useSelector(state => state.notes)
   const dispatch = useDispatch()
   const onSaveNote = useCallback(note => dispatch(saveNote(note)), [dispatch])
-
+  const onDelNote = useCallback(id => dispatch(delNote(id)), [dispatch])
   const [content, setContent] = useState({
     title: '',
     body: '',
@@ -40,6 +40,7 @@ const CheckContainer = () => {
       content={content}
       onChange={onChange}
       onSubmit={onSubmit}
+      onDelNote={onDelNote}
     />
   )
 }

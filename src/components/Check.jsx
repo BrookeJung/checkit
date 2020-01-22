@@ -1,12 +1,18 @@
 import React from 'react'
 import _ from 'lodash'
 
-const Check = ({ notes, content, onChange, onSubmit }) => {
+const Check = ({ notes, content, onChange, onSubmit, onDelNote }) => {
   const renderNotes = () => {
     return _.map(notes, (note, key) => (
-      <div key={key}>
+      <div className="jumbotron" key={key}>
         <h2>{note.title}</h2>
         <p>{note.body}</p>
+        <button
+          className="btn btn-danger btn-sm"
+          onClick={() => onDelNote(key)}
+        >
+          DEL
+        </button>
       </div>
     ))
   }
